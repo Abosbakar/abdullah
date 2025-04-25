@@ -12,12 +12,18 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0;
         }
         .container {
             text-align: center;
             border: 2px solid #ccc;
             padding: 20px;
             border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
         }
         .btn {
             padding: 10px 20px;
@@ -27,16 +33,14 @@
             color: white;
             cursor: pointer;
             border-radius: 5px;
-        }
-        .btn-disabled {
-            background-color: #ddd;
-            cursor: not-allowed;
+            font-size: 16px;
         }
         .btn:hover {
             background-color: #45a049;
         }
-        .btn-disabled:hover {
+        .btn-disabled {
             background-color: #ddd;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -50,16 +54,20 @@
 
 <script>
     const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
     
+    // Hayır butonunun hareketi
     noBtn.addEventListener('mouseover', () => {
-        noBtn.classList.add('btn-disabled');
+        const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);  // X ekseninde rastgele bir pozisyon
+        const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);  // Y ekseninde rastgele bir pozisyon
+        
+        noBtn.style.position = 'absolute';  // Butonu hareket ettirebilmek için position absolute yapıyoruz
+        noBtn.style.left = randomX + 'px';  // Yeni X konumunu ayarlıyoruz
+        noBtn.style.top = randomY + 'px';   // Yeni Y konumunu ayarlıyoruz
     });
 
-    noBtn.addEventListener('click', () => {
-        alert('Hayır seçeneğine tıklanamaz!');
-    });
-
-    document.getElementById('yesBtn').addEventListener('click', () => {
+    // Evet butonuna tıklanması
+    yesBtn.addEventListener('click', () => {
         alert('Numaranız verilmiştir!');
     });
 </script>

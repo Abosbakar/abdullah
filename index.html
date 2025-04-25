@@ -14,6 +14,7 @@
             margin: 0;
             background-color: #f0f0f0;
         }
+
         .container {
             text-align: center;
             border: 2px solid #ccc;
@@ -22,9 +23,11 @@
             background-color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             margin-bottom: 20px;
         }
+
         .btn {
             padding: 10px 20px;
             margin: 10px;
@@ -34,43 +37,43 @@
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            transition: all 0.3s ease; /* Buton hareket ederken smooth geçiş */
         }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .btn-disabled {
-            background-color: #ddd;
-            cursor: not-allowed;
-        }
+
+            .btn:hover {
+                background-color: #45a049;
+            }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Numaramı almak ister misin?</h2>
-    <button class="btn" id="yesBtn">Evet</button>
-    <button class="btn" id="noBtn">Hayır</button>
-</div>
+    <div class="container">
+        <h2>Numaranızı verir misiniz Fatma hanım?</h2>
+        <button class="btn" id="yesBtn">Evet</button>
+        <button class="btn" id="noBtn">Hayır</button>
+    </div>
 
-<script>
-    const noBtn = document.getElementById('noBtn');
-    const yesBtn = document.getElementById('yesBtn');
-    
-    // Hayır butonunun hareketi
-    noBtn.addEventListener('mouseover', () => {
-        const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);  // X ekseninde rastgele bir pozisyon
-        const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);  // Y ekseninde rastgele bir pozisyon
-        
-        noBtn.style.position = 'absolute';  // Butonu hareket ettirebilmek için position absolute yapıyoruz
-        noBtn.style.left = randomX + 'px';  // Yeni X konumunu ayarlıyoruz
-        noBtn.style.top = randomY + 'px';   // Yeni Y konumunu ayarlıyoruz
-    });
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
 
-    // Evet butonuna tıklanması
-    yesBtn.addEventListener('click', () => {
-        alert('Numaranız verilmiştir!');
-    });
-</script>
+        // Hayır butonunun fareyi üzerine almasıyla kayması
+        noBtn.addEventListener('mouseover', () => {
+            // Ekran boyutlarına göre rastgele X ve Y koordinatları oluşturuyoruz
+            const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+            // Butonu hareket ettirmek için top ve left değerlerini ayarlıyoruz
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        });
+
+        // Evet butonuna tıklanması
+        yesBtn.addEventListener('click', () => {
+            alert('ALDIM NUMARANI FISTIK');
+        });
+    </script>
 
 </body>
 </html>

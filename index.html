@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numara Alma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn-disabled:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Numaramı almak ister misin?</h2>
+    <button class="btn" id="yesBtn">Evet</button>
+    <button class="btn" id="noBtn">Hayır</button>
+</div>
+
+<script>
+    const noBtn = document.getElementById('noBtn');
+    
+    noBtn.addEventListener('mouseover', () => {
+        noBtn.classList.add('btn-disabled');
+    });
+
+    noBtn.addEventListener('click', () => {
+        alert('Hayır seçeneğine tıklanamaz!');
+    });
+
+    document.getElementById('yesBtn').addEventListener('click', () => {
+        alert('Numaranız verilmiştir!');
+    });
+</script>
+
+</body>
+</html>

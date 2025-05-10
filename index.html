@@ -2,10 +2,10 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Numaranı Bırak 😇</title>
+  <title>Numaranızı Verir misiniz? 😊</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #fff3f3;
       display: flex;
       justify-content: center;
@@ -15,29 +15,84 @@
     }
 
     .container {
-      background: white;
+      text-align: center;
+      background-color: white;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      position: relative;
     }
 
     h2 {
       color: #c94f7c;
-      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background-color: #45a049;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
     }
 
     iframe {
-      border: none;
+      margin-top: 20px;
       width: 100%;
       height: 500px;
+      border: none;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Nurçin hanım, numaranızı verir misiniz? 🥺</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd152Y9eyjPXqjUQ_X6lkD0H0EQKLYkk7RSkETZICZsBzaW2w/viewform?embedded=true" width="400" height="300" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
-  </div>
+
+<div class="container">
+  <h2>Numaranızı vermek ister misiniz? 😇</h2>
+  <button id="yesBtn" class="btn">Evet</button>
+  <button id="noBtn" class="btn" style="top: 100px; left: 50%;">Hayır</button>
+  <iframe id="formFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSd152Y9eyjPXqjUQ_X6lkD0H0EQKLYkk7RSkETZICZsBzaW2w/viewform?embedded=true"></iframe>
+</div>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const formFrame = document.getElementById('formFrame');
+
+  yesBtn.addEventListener('click', () => {
+    formFrame.style.display = 'block';
+    yesBtn.style.display = 'none';
+    noBtn.style.display = 'none';
+  });
+
+  noBtn.addEventListener('mouseover', () => {
+    const container = document.querySelector('.container');
+    const maxX = container.offsetWidth - noBtn.offsetWidth;
+    const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+  });
+</script>
+
 </body>
 </html>

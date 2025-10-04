@@ -96,37 +96,3 @@
 
 </body>
 </html>
-
-<div class="container">
-  <h2>Numaranızı vermek ister misiniz Tuğçe hanım? 😇</h2>
-  <button id="yesBtn" class="btn">Evet</button>
-  <button id="noBtn" class="btn" style="top: 100px; left: 50%;">Hayır</button>
-  <iframe id="formFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSd152Y9eyjPXqjUQ_X6lkD0H0EQKLYkk7RSkETZICZsBzaW2w/viewform?embedded=true"></iframe>
-</div>
-
-<script>
-  const yesBtn = document.getElementById('yesBtn');
-  const noBtn = document.getElementById('noBtn');
-  const formFrame = document.getElementById('formFrame');
-
-  yesBtn.addEventListener('click', () => {
-    formFrame.style.display = 'block';
-    yesBtn.style.display = 'none';
-    noBtn.style.display = 'none';
-  });
-
-  noBtn.addEventListener('mouseover', () => {
-    const container = document.querySelector('.container');
-    const maxX = container.offsetWidth - noBtn.offsetWidth;
-    const maxY = container.offsetHeight - noBtn.offsetHeight;
-
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-  });
-</script>
-
-</body>
-</html>
